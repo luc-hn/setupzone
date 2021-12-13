@@ -18,11 +18,11 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   builder.init("setupzone", {
     env: "production",
   });
-
+  const { slug } = context.params;
   // call to page-build bff to get page data by slug
   try {
     const { page, redirect } = await builder.getPublicPage({
-      slug: "/",
+      slug,
       device: "desktop",
     });
     if (!!redirect) {
