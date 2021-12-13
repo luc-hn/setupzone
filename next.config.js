@@ -1,7 +1,4 @@
-// next.config.js
-const withPlugins = require("next-compose-plugins");
-
-const nextConfiguration = {
+module.exports = {
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback.fs = false;
@@ -15,5 +12,3 @@ const nextConfiguration = {
     return config;
   },
 };
-
-module.exports = withPlugins([], nextConfiguration);
